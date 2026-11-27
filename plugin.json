@@ -37,7 +37,10 @@
           "Compare star growth for react/react and vuejs/core."
         ],
         "logo": "./assets/icon.png",
-        "composerIcon": "./assets/icon.png"
+        "composerIcon": "./assets/icon.png",
+        "privacyPolicyURL": "https://momentum.bitsky.ai/privacy.html",
+        "termsOfServiceURL": "https://momentum.bitsky.ai/terms.html",
+        "supportURL": "https://momentum.bitsky.ai/support.html"
       },
       "publication": {
         "release_notes": "1.3.0: Package the existing Momentum 1.3.0 skill for plugin installation. Skill instructions are unchanged."

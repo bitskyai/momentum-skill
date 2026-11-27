@@ -17,30 +17,24 @@ The OpenAI guide prefers portable root `plugin.json` with the Agent Plugins `$sc
 
 OpenAI's five positive/three negative manifest review cases apply to initial MCP review. Plugin-level `review.test_cases` requires exactly one MCP server. This package has none: the requested cases live in [review-cases.md](review-cases.md), with expected behavior and host access identified, and are not embedded as invalid MCP review metadata.
 
-## URL checks and TODOs
+## URL checks and deployment
 
-Checked with HTTP GET on 2026-11-27:
-
-| URL | Result | Use |
+| URL | Use | Status |
 | --- | --- | --- |
-| https://momentum.bitsky.ai/ | 200; Momentum page with BitSky LLC footer | Website, homepage and documentation |
-| https://momentum.bitsky.ai/icon-512.png | 200; 512×512 PNG | Existing brand icon copied to assets/icon.png |
-| https://momentum.bitsky.ai/privacy | 404 | TODO: publish an actual privacy policy |
-| https://momentum.bitsky.ai/privacy.html | 404 | Alternative checked; unavailable |
-| https://momentum.bitsky.ai/terms | 404 | TODO: publish applicable terms |
-| https://momentum.bitsky.ai/terms.html | 404 | Alternative checked; unavailable |
-| https://momentum.bitsky.ai/support | 404 | TODO: publish a support page with bitskyai@gmail.com |
+| https://momentum.bitsky.ai/ | Website, homepage and documentation | HTTP 200 when checked 2026-11-27 |
+| https://momentum.bitsky.ai/icon-512.png | Brand icon copied to assets/icon.png | HTTP 200 when checked 2026-11-27 |
+| https://momentum.bitsky.ai/privacy.html | Privacy policy | Page being deployed; may return 404 |
+| https://momentum.bitsky.ai/terms.html | Terms of service | Page being deployed; may return 404 |
+| https://momentum.bitsky.ai/support.html | Support | Page being deployed; may return 404 |
 
-No matching policy or support links were found in the homepage. These are checked candidate paths, not verified future URL choices. Confirm actual data collection, recipients, retention, and controls before publishing a policy. Do not substitute the homepage for a policy or terms document. Once pages exist, verify their content and HTTP 200 and populate Claude `privacyPolicyUrl`, `termsOfServiceUrl`, `supportUrl` and OpenAI `interface.privacyPolicyURL`, `termsOfServiceURL`, `supportURL`.
-
-The current OpenAI field reference exempts skills-only metadata validation from requiring all four listing URLs. The guidelines still require a published privacy policy for submissions. Treat the missing privacy page as a public submission blocker; finish support and terms before handoff to the portals too. MIT LICENSE governs the code and is not a hosted service terms URL.
+The policy and support URLs are in both manifests using each platform's documented field names. Verify the deployed pages' contents and HTTP 200 before submission. OpenAI's skills-only package validation does not require all four listing URLs, but its guidelines require a published privacy policy. MIT LICENSE governs the code and is not a hosted service terms URL.
 
 ## Manual Claude portal checklist
 
 - [ ] Use the intended BitSky account/organization at https://claude.ai/directory/manage on an eligible paid plan; connect a GitHub account with push access to the repository.
 - [ ] Select **Submit new → Plugin bundle**.
 - [ ] **Repository:** `https://github.com/bitskyai/momentum-skill`; **Plugin path:** leave blank (repository root); **Branch or tag:** `main` after merge (or `feat/marketplace-plugins` to validate this PR).
-- [ ] Publish the missing policy/support pages and add the manifest URL fields above. Verify listing name Momentum, short description, icon, README and MIT license.
+- [ ] Verify the deployed policy and support pages at the URLs above. Verify listing name Momentum, short description, icon, README and MIT license.
 - [ ] Run portal **Validate** on the final commit; resolve blocking findings. Local CLI validation does not run the portal safety scan or policy review.
 - [ ] **Data handling:** publisher must answer personal data read/storage, transfer to services outside declared connectors, retention, and intended use by people under 18 based on actual practices. The skill fetches public Momentum pages and bulk files using host tools, and has no bundled MCP server or plugin storage.
 - [ ] **Compliance:** contact email `bitskyai@gmail.com`; authorized publisher completes all four acknowledgements.
@@ -49,7 +43,7 @@ The current OpenAI field reference exempts skills-only metadata validation from 
 ## Manual OpenAI portal checklist
 
 - [ ] Use https://platform.openai.com/plugins in the intended organization and project (organization owner or Apps Management Write required); verify/select the **BitSky LLC developer identity**. Confirm contact `bitskyai@gmail.com` and public publisher name.
-- [ ] Publish the missing privacy, terms and support pages and add their manifest fields; rebuild the ZIP. Website is already populated and verified.
+- [ ] Verify the deployed privacy, terms and support pages at the URLs above. Website is already populated and verified.
 - [ ] **Upload new or existing plugin → Upload plugin:** select `dist/momentum-openai-plugin.zip`; plugin type **Skills only**. No MCP endpoint, domain challenge, OAuth setup, or reviewer login is needed for this package.
 - [ ] **Metadata & Skills:** verify imported name **Momentum**, subtitle **Discover growing GitHub repos**, category **Developer Tools**, long description, icon, website, three starter prompts, and version **1.3.0**; wait for required skill scans and resolve findings.
 - [ ] Confirm intended country availability in the portal; countries are deliberately omitted from the ZIP pending publisher choice. Confirm whether English-only listing is sufficient; translations are omitted.

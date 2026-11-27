@@ -16,6 +16,9 @@ def main():
     for path in ('plugin.json', '.claude-plugin/plugin.json'):
         if json.loads((ROOT / path).read_text())['version'] != version:
             raise ValueError(f'{path} version must match skill {version}')
+    marketplace = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text())
+    if marketplace['metadata']['version'] != version:
+        raise ValueError(f'.claude-plugin/marketplace.json metadata.version must match skill {version}')
     if manifest['$schema'] != 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json':
         raise ValueError('Expected portable plugin schema')
     interface = manifest['extensions']['com.openai']['interface']

@@ -11,12 +11,6 @@ Run in Claude Code after this marketplace is available on the default branch:
 /plugin install momentum@bitskyai-momentum
 ```
 
-Or install in one step on supported Claude Code versions:
-
-```text
-/plugin install momentum --marketplace bitskyai/momentum-skill
-```
-
 Try `/momentum:momentum Find the fastest-growing Rust repositories this month.`
 For local development: `claude --plugin-dir .`.
 

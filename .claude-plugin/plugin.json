@@ -17,7 +17,9 @@
     "growth",
     "trending"
   ],
-  "skills": "./skills/",
   "icon": "./assets/icon.png",
-  "documentationUrl": "https://momentum.bitsky.ai/"
+  "documentationUrl": "https://momentum.bitsky.ai/",
+  "privacyPolicyUrl": "https://momentum.bitsky.ai/privacy.html",
+  "termsOfServiceUrl": "https://momentum.bitsky.ai/terms.html",
+  "supportUrl": "https://momentum.bitsky.ai/support.html"
 }
