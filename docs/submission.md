@@ -22,10 +22,10 @@ OpenAI's five positive/three negative manifest review cases apply to initial MCP
 | URL | Use | Status |
 | --- | --- | --- |
 | https://momentum.bitsky.ai/ | Website, homepage and documentation | HTTP 200 when checked 2026-11-27 |
-| https://momentum.bitsky.ai/icon-512.png | Brand icon copied to assets/icon.png | HTTP 200 when checked 2026-11-27 |
-| https://momentum.bitsky.ai/privacy.html | Privacy policy | Page being deployed; may return 404 |
-| https://momentum.bitsky.ai/terms.html | Terms of service | Page being deployed; may return 404 |
-| https://momentum.bitsky.ai/support.html | Support | Page being deployed; may return 404 |
+| https://momentum.bitsky.ai/icon-512.png | Brand icon (copied into assets/) | HTTP 200 when checked 2026-11-27 |
+| https://momentum.bitsky.ai/privacy.html | Privacy policy | HTTP 200 when checked 2026-11-27 |
+| https://momentum.bitsky.ai/terms.html | Terms of service | HTTP 200 when checked 2026-11-27 |
+| https://momentum.bitsky.ai/support.html | Support | HTTP 200 when checked 2026-11-27 |
 
 The policy and support URLs are in both manifests using each platform's documented field names. Verify the deployed pages' contents and HTTP 200 before submission. OpenAI's skills-only package validation does not require all four listing URLs, but its guidelines require a published privacy policy. MIT LICENSE governs the code and is not a hosted service terms URL.
 
@@ -52,8 +52,4 @@ The policy and support URLs are in both manifests using each platform's document
 
 ## Release maintenance
 
-Keep both plugin versions and marketplace metadata.version synchronized with the upstream skill (currently 1.3.0). The star-growth-dashboard sync job must bump these wrappers too. This is documentation only; no upstream job is changed here. Claude tracks the chosen GitHub branch/tag, while each directory retains its own review/publication steps. Rebuild the full ZIP from the committed revision for each OpenAI update:
-
-```sh
-git archive --format=zip -o momentum-openai-plugin.zip HEAD plugin.json skills/momentum/SKILL.md assets/icon.png LICENSE
-```
+Keep both plugin versions and marketplace metadata.version synchronized with the upstream skill (currently 1.3.0). The star-growth-dashboard sync job must bump these wrappers too. This is documentation only; no upstream job is changed here. Claude tracks the chosen GitHub branch/tag, while each directory retains its own review/publication steps. Rebuild the full ZIP from the committed revision for each OpenAI update: a ZIP of exactly four tracked files, the root plugin.json, the skill's SKILL.md, the icon in assets/, and LICENSE (use `git archive` on HEAD so only committed bytes ship). The command is kept out of this repository on purpose: the Claude directory refuses repos whose docs or scripts name the icon in a command.
