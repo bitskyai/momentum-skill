@@ -1,0 +1,47 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "momentum",
+  "version": "1.3.0",
+  "description": "Discover public GitHub repositories by star growth using Momentum daily snapshots.",
+  "author": {
+    "name": "BitSky LLC",
+    "email": "bitskyai@gmail.com",
+    "url": "https://momentum.bitsky.ai/"
+  },
+  "homepage": "https://momentum.bitsky.ai/",
+  "repository": "https://github.com/bitskyai/momentum-skill",
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "repositories",
+    "stars",
+    "growth",
+    "trending"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Momentum",
+        "shortDescription": "Discover growing GitHub repos",
+        "longDescription": "Discover and compare public GitHub repositories using Momentum daily snapshots of total stars and star gains. Find trending projects by language, topic, or keyword over 1, 7, 30, 90, or 365 days. For developers and open-source researchers. Results cover the snapshot cohort above its star threshold, not every repository. Private repositories and real-time star counts are unavailable. Requires a host with web access; complete cohort analysis additionally needs bulk download and local filtering.",
+        "developerName": "BitSky LLC",
+        "category": "Developer Tools",
+        "capabilities": [
+          "Discover trending repositories",
+          "Compare repository star growth"
+        ],
+        "websiteURL": "https://momentum.bitsky.ai/",
+        "defaultPrompt": [
+          "Find the fastest-growing Rust repositories this month.",
+          "Which AI-agent repositories gained the most stars this week?",
+          "Compare star growth for react/react and vuejs/core."
+        ],
+        "logo": "./assets/icon.png",
+        "composerIcon": "./assets/icon.png"
+      },
+      "publication": {
+        "release_notes": "1.3.0: Package the existing Momentum 1.3.0 skill for plugin installation. Skill instructions are unchanged."
+      }
+    }
+  }
+}
