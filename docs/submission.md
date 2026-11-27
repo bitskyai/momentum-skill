@@ -44,12 +44,16 @@ The policy and support URLs are in both manifests using each platform's document
 
 - [ ] Use https://platform.openai.com/plugins in the intended organization and project (organization owner or Apps Management Write required); verify/select the **BitSky LLC developer identity**. Confirm contact `bitskyai@gmail.com` and public publisher name.
 - [ ] Verify the deployed privacy, terms and support pages at the URLs above. Website is already populated and verified.
-- [ ] **Upload new or existing plugin → Upload plugin:** select `dist/momentum-openai-plugin.zip`; plugin type **Skills only**. No MCP endpoint, domain challenge, OAuth setup, or reviewer login is needed for this package.
-- [ ] **Metadata & Skills:** verify imported name **Momentum**, subtitle **Discover growing GitHub repos**, category **Developer Tools**, long description, icon, website, three starter prompts, and version **1.3.0**; wait for required skill scans and resolve findings.
+- [ ] **Upload new or existing plugin → Upload plugin:** select `momentum-openai-plugin.zip`; plugin type **Skills only**. No MCP endpoint, domain challenge, OAuth setup, or reviewer login is needed for this package.
+- [ ] **Metadata & Skills:** verify imported name **Momentum by BitSky**, subtitle **Discover growing GitHub repos**, category **Developer Tools**, long description, icon, website, three starter prompts, and version **1.3.0**; wait for required skill scans and resolve findings.
 - [ ] Confirm intended country availability in the portal; countries are deliberately omitted from the ZIP pending publisher choice. Confirm whether English-only listing is sufficient; translations are omitted.
 - [ ] Run the eight behavioral cases in the intended hosts and record actual outcomes. They are manual acceptance material; MCP review cases, recording URL, and test credentials are not required for this skills-only submission.
 - [ ] Review imported release notes. Complete any portal policy/commerce declarations and legal acknowledgements as the authorized publisher, then **Submit for review**. After approval select **Publish plugin** separately.
 
 ## Release maintenance
 
-Keep both plugin versions and marketplace metadata.version synchronized with the upstream skill (currently 1.3.0). The star-growth-dashboard sync job must bump these wrappers too. This is documentation only; no upstream job is changed here. Rebuild the full ZIP for each OpenAI update; `dist/` is ignored. Claude tracks the chosen GitHub branch/tag, while each directory retains its own review/publication steps.
+Keep both plugin versions and marketplace metadata.version synchronized with the upstream skill (currently 1.3.0). The star-growth-dashboard sync job must bump these wrappers too. This is documentation only; no upstream job is changed here. Claude tracks the chosen GitHub branch/tag, while each directory retains its own review/publication steps. Rebuild the full ZIP from the committed revision for each OpenAI update:
+
+```sh
+git archive --format=zip -o momentum-openai-plugin.zip HEAD plugin.json skills/momentum/SKILL.md assets/icon.png LICENSE
+```
