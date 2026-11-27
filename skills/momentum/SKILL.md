@@ -3,7 +3,7 @@ name: momentum
 version: 1.3.0
 metadata:
   updated: 2026-11-23
-description: Use when asked about trending or fast-growing GitHub repositories, star gains over a day, week, month or year, the most-starred or fastest-rising repos in a topic, language or keyword, new repos gaining traction, or comparing GitHub repos by stars and growth. Reads Momentum (https://momentum.bitsky.ai/), a free daily static snapshot of every public GitHub repository above a star threshold, with star gains per window, topics, languages and activity. No account, API key or MCP server.
+description: "Use when asked about trending or fast-growing GitHub repositories, star gains over a day, week, month or year, the most-starred or fastest-rising repos in a topic, language or keyword, new repos gaining traction, or comparing GitHub repos by stars and growth. Reads Momentum (https://momentum.bitsky.ai/), a free daily static snapshot of every public GitHub repository above a star threshold, with star gains per window, topics, languages and activity. No account, API key or MCP server."
 ---
 
 # Momentum

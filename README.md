@@ -8,23 +8,19 @@ Run in Claude Code after this marketplace is available on the default branch:
 
 ```text
 /plugin marketplace add bitskyai/momentum-skill
-/plugin install momentum@bitskyai-momentum
+/plugin install bitsky-momentum@bitskyai-momentum
 ```
 
-Try `/momentum:momentum Find the fastest-growing Rust repositories this month.`
+Try `/bitsky-momentum:momentum Find the fastest-growing Rust repositories this month.`
 For local development: `claude --plugin-dir .`.
 
 ## ChatGPT and Codex
 
-This repository contains a portable, skills-only OpenAI plugin. It does not yet have an approved directory listing. Once published, find **Momentum** by **BitSky LLC** in the Plugins Directory and add it in ChatGPT or Codex where plugins are supported.
+This repository contains a portable, skills-only OpenAI plugin. It does not yet have an approved directory listing. Once published, find **Momentum by BitSky** by **BitSky LLC** in the Plugins Directory and add it in ChatGPT or Codex where plugins are supported.
 
-Maintainers can build the directory upload:
+Maintainers can build the directory upload using the command in the [submission notes](docs/submission.md).
 
-```sh
-python3 scripts/build-openai-zip.py
-```
-
-Upload `dist/momentum-openai-plugin.zip` at [OpenAI Plugins](https://platform.openai.com/plugins), choose **Skills only**, and follow [submission notes](docs/submission.md). The ZIP contains only the portable manifest, unchanged skill, icon, and MIT license. Building it does not submit or publish it.
+Upload `momentum-openai-plugin.zip` at [OpenAI Plugins](https://platform.openai.com/plugins), choose **Skills only**, and follow [submission notes](docs/submission.md). The ZIP contains only the portable manifest, unchanged skill, icon, and MIT license. Building it does not submit or publish it.
 
 ## skills.sh and other agents
 
